@@ -1,0 +1,34 @@
+{
+    "name": "conorsmith/dublinbikes",
+    "description": "Client library for JCDecaux's self-service bikes API for Dublinbikes.",
+    "keywords": [
+        "dublinbikes",
+        "jcdecaux",
+        "bikes"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Conor Smith",
+            "email": "conor@tercet.io",
+            "homepage": "http://conorsmith.ie/",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "nesbot/Carbon": "1.13.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "ConorSmith\\Dublinbikes\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ConorSmith\\Dublinbikes\\Test\\": "test"
+        }
+    }
+}
