@@ -2,7 +2,7 @@
 
 namespace ConorSmith\Dublinbikes\Domain;
 
-class RealTimeStatusRepository
+interface RealTimeStatusRepository
 {
     public function getLatest();
     public function find($id);

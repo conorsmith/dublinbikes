@@ -8,9 +8,9 @@ class StationInMemoryRepository implements StationRepository
 {
     private $stations;
 
-    public function __construct()
+    public function __construct(StationsEndpoint $endpoint, StationFactory $factory)
     {
-        $this->stations = [];
+        $this->stations = $factory->buildCollection($endpoint->get());
     }
 
     public function all()

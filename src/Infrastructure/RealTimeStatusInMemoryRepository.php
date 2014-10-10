@@ -9,9 +9,9 @@ class RealTimeStatusInMemoryRepository implements RealTimeStatusRepository
 {
     private $statuses;
 
-    public function __construct()
+    public function __construct(StationsEndpoint $endpoint, RealTimeStatusFactory $factory)
     {
-        $this->statuses = [];
+        $this->statuses = $factory->buildCollection($endpoint->get());
     }
 
     public function getLatest()
@@ -36,7 +36,7 @@ class RealTimeStatusInMemoryRepository implements RealTimeStatusRepository
 
     public function findLatestWithStation(Station $station)
     {
-        $latestStatus = null
+        $latestStatus = null;
         $latestStatusAtTimestamp = null;
 
         foreach ($this->statuses as $status) {

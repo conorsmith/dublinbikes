@@ -44,4 +44,9 @@ class Station
         $this->totalStands = $totalStands;
         $this->acceptsCards = $acceptsCards;
     }
+
+    public function equals(Station $other)
+    {
+        return $this->id === $other->id;
+    }
 }
