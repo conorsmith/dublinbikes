@@ -93,34 +93,34 @@ class StationTest extends \PHPUnit_Framework_TestCase
         $station = new Station($id, $number, $name, $location, $totalStands, $acceptsCards);
 
         $this->assertEquals(
-            $id
-            , $station->id
-            , "The Station could not be created with the given ID."
+            $id,
+            $station->id,
+            "The Station could not be created with the given ID."
         );
         $this->assertEquals(
-            $number
-            , $station->number
-            , "The Station could not be created with the given number."
+            $number,
+            $station->number,
+            "The Station could not be created with the given number."
         );
         $this->assertEquals(
-            $name
-            , $station->name
-            , "The Station could not be created with the given name."
+            $name,
+            $station->name,
+            "The Station could not be created with the given name."
         );
         $this->assertEquals(
-            $location
-            , $station->location
-            , "The Station could not be created with the given location."
+            $location,
+            $station->location,
+            "The Station could not be created with the given location."
         );
         $this->assertEquals(
-            $totalStands
-            , $station->totalStands
-            , "The Station could not be created with the given total number of stands."
+            $totalStands,
+            $station->totalStands,
+            "The Station could not be created with the given total number of stands."
         );
         $this->assertEquals(
-            $acceptsCards
-            , $station->acceptsCards
-            , "The Station could not be created with the given 'accepts cards' attribute."
+            $acceptsCards,
+            $station->acceptsCards,
+            "The Station could not be created with the given 'accepts cards' attribute."
         );
     }
 
@@ -176,6 +176,32 @@ class StationTest extends \PHPUnit_Framework_TestCase
         $this->setExpectedException('UnexpectedValueException');
 
         new Station($this->id, $this->number, $this->name, $this->location, $this->totalStands, $invalidAcceptsCards);
+    }
+
+    /**
+     * @test
+     */
+    public function itIsEqualToAnotherStationWithTheSameId()
+    {
+        $anotherStation = new Station($this->id, 1065, 'Some name', new Location(48.1242, 2.434), 25, false);
+
+        $this->assertTrue(
+            $this->station->equals($anotherStation),
+            "The Station was incorrectly determined to be not equal to the given other Station."
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function itIsntEqualToAnotherStationWithADifferentId()
+    {
+        $anotherStation = new Station(908, $this->number, $this->name, $this->location, $this->totalStands, $this->acceptsCards);
+
+        $this->assertFalse(
+            $this->station->equals($anotherStation),
+            "The Station was incorrectly determined to be equal to the given other Station."
+        );
     }
 
     public function nonNaturalNumberProvider()
