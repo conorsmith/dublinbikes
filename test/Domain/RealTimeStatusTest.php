@@ -1,6 +1,6 @@
 <?php
 
-namespace ConorSmith\Dublinbikes\Test;
+namespace ConorSmith\Dublinbikes\Test\Domain;
 
 use ConorSmith\Dublinbikes\Domain\RealTimeStatus;
 
